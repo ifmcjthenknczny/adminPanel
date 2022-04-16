@@ -24,7 +24,7 @@ class Login extends Component {
         const mail = document.querySelector("input#email").value;
         const password = document.querySelector("input#password").value;
         const reservedWords = ['add', 'update', 'delete', 'login', 'unblock', 'block', 'ban', 'unban']
-        if (username.length === 0) {
+        if (username.trim().length === 0) {
             this.setState({ alert: "Enter your username." })
             return
         }
@@ -36,7 +36,7 @@ class Login extends Component {
             this.setState({ alert: "This is not a valid email address." })
             return
         }
-        if (password.length === 0) {
+        if (password.trim().length === 0) {
             this.setState({ alert: "Enter at least one character as your password." })
             return
         }
@@ -60,11 +60,11 @@ class Login extends Component {
         evt.preventDefault();
         const username = document.querySelector("input#username").value;
         const password = document.querySelector("input#password").value;
-        if (username.length === 0) {
+        if (username.trim().length === 0) {
             this.setState({ alert: "Enter your username." })
             return
         }
-        if (password.length === 0) {
+        if (password.trim().length === 0) {
             this.setState({ alert: "Enter your password." })
             return
         }
