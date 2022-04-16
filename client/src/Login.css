@@ -1,0 +1,44 @@
+body {
+    background: url("./img/what-the-hex.png");
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.Login {
+    align-items: center;
+    justify-content: center;
+}
+
+input,
+button {
+    border: 1px solid black;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    width: 250px;
+}
+
+.button__submit:hover {
+    background-color: green;
+    transition: 0.3s;
+    font-weight: 700;
+}
+
+.button__switch:hover {
+    background-color: goldenrod;
+    transition: 0.6s;
+}
+
+input:focus::placeholder {
+    color: snow;
+}
+
+input:focus {
+    background-color: snow;
+}
+
+.alert {
+    width: 100vw;
+    align-self: center;
+    text-align: center;
+}

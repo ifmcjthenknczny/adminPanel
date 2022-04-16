@@ -1,0 +1,68 @@
+.Admin {
+    text-align: center;
+}
+
+.fa-solid {
+    cursor: pointer;
+}
+
+.button__logout:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    transition: 0.4s;
+}
+
+.button__logout {
+    width: 200px;
+}
+
+.button__logout:hover {
+    font-weight: 700;
+}
+
+.button__delete {
+    width: 100px;
+    text-transform: uppercase;
+}
+
+.buttons {
+    width: 50vw;
+}
+
+.fa-unlock-keyhole:hover {
+    color: green;
+    transition: 0.2s;
+}
+
+.fa-ban:hover {
+    color: #bb2d3b !important;
+    transition: .15s;
+}
+
+.table {
+    width: 90vw;
+}
+
+.info {
+    position: relative;
+    display: inline-block;
+    transform: translateX(10px);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.fa-solid .info {
+    visibility: hidden;
+    background-color: darkgrey;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.fa-solid:hover .info {
+    visibility: visible;
+}
