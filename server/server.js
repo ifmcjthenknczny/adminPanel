@@ -3,11 +3,15 @@ import express from 'express';
 import cors from 'cors';
 import userRouter from './routes/users.js';
 import 'dotenv/config';
+// import path from 'path';
 
 const app = express();
 const port = process.env.PORT || 5000;
 const uri = process.env.ATLAS_URI;
-// app.use(express.static("public"));
+// process.env.PWD = process.cwd();
+// app.use(express.static(path.join(process.env.PWD, 'public')));
+app.use(express.static("public"));
+// app.use(express.static(__dirname + "/public/"));
 app.use(express.json());
 app.use(cors());
 

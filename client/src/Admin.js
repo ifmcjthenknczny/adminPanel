@@ -29,7 +29,11 @@ class Admin extends Component {
         for (let user of users) if (user.username === this.props.loggedUser && user.active) return true
         return false
     }
-
+    clearCheckboxes() {
+        const checkboxes = document.querySelectorAll('.form-check-input');
+        for (let checkbox of checkboxes) checkbox.checked = false;
+        this.setState({ checkedUsers: [] })
+    }
     handleLogout(evt) {
         this.props.logoutFunction();
     }
@@ -51,7 +55,7 @@ class Admin extends Component {
     }
 
     async loadData() {
-        const data = await axios.get(`http://localhost:5000/users`);
+        const data = await axios.get(`/users`);
         this.setState({ users: data.data });
     }
 
@@ -73,12 +77,12 @@ class Admin extends Component {
             return
         }
         const concernedUsers = [...this.state.checkedUsers];
-        const urlTemplate = `http://localhost:5000/users/${request}`
+        const urlTemplate = `/users/${request}`
         let requests;
         if (request === 'delete') requests = concernedUsers.map(u => axios.delete(`${urlTemplate}/${u}`));
         else if (['unban', 'ban', 'login'].includes(request)) requests = concernedUsers.map(u => axios.patch(`${urlTemplate}/${u}`));
         await Promise.all(requests);
-        if (request === 'delete') this.setState({ checkedUsers: [...this.state.checkedUsers].filter(u => !concernedUsers.includes(u)) })
+        this.clearCheckboxes();
     }
 
     render() {

@@ -49,11 +49,11 @@ class Login extends Component {
             password: password
         }
         let exists = false;
-        await axios.get(`http://localhost:5000/users/${username}`).then((res) => { if (!!res.data) { exists = true; this.setState({ alert: "User already exists!" }) } })
+        await axios.get(`/users/${username}`).then((res) => { if (!!res.data) { exists = true; this.setState({ alert: "User already exists!" }) } })
         if (exists) return
 
         this.setState({ alert: `Successfully registered user ${username}!` })
-        await axios.post('http://localhost:5000/users/add', user);
+        await axios.post('/users/add', user);
     }
 
     async handleLogin(evt) {
@@ -70,7 +70,7 @@ class Login extends Component {
         }
         let dbPass = '';
         let active = true;
-        await axios.get(`http://localhost:5000/users/${username}`).then(res => { dbPass = res.data.password; active = res.data.active }).catch(err => { console.log(err.message) });
+        await axios.get(`/users/${username}`).then(res => { dbPass = res.data.password; active = res.data.active }).catch(err => { console.log(err.message) });
         if (!active) {
             this.setState({ alert: "User is blocked!" })
             return
@@ -79,7 +79,7 @@ class Login extends Component {
             this.setState({ alert: "Username and password don't match!" })
             return
         }
-        const url = `http://localhost:5000/users/login/${username}`;
+        const url = `/users/login/${username}`;
         await axios.patch(url, { lastLogin: Date.now() });
         this.props.logInFunction(username);
     }
