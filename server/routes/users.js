@@ -8,12 +8,7 @@ router.route('/').get((req, res) => {
 })
 
 router.route('/add').post((req, res) => {
-    const username = req.body.username;
-    const email = req.body.email;
-    const lastLogin = req.body.lastLogin;
-    const regTime = req.body.regTime;
-    const active = req.body.active;
-    const password = req.body.password;
+	const {username, email, lastLogin, regTime, active, password} = req.body;
     const newUser = new User({
         username,
         email,
